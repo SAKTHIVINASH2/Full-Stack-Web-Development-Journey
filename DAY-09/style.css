@@ -1,0 +1,90 @@
+.parent { 
+    position: relative;
+    border: 2px solid blue;
+    width: 600px;
+    height: 600px;
+    margin-top: 60px;
+    margin-left: 450px;
+}
+.child_1{
+    position: absolute;
+    border: 2px solid red;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+}
+.child_2 {
+    position: absolute;
+    border: 2px solid red;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    right: 0;
+}
+.child_3 {
+    position: absolute;
+    border: 2px solid red;
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+}
+.child_4 {
+    position: absolute;
+    border: 2px solid red;
+    width: 50px;
+    height: 50px;
+    bottom: 0;
+    right: 0;
+}
+.text {
+    color: red;
+    font-size: large;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.circle_1 {
+    position: absolute;
+    top: 0;
+    left: 270px;
+    border: 2px solid green;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+.circle_2 {
+    position: absolute;
+    left: 0;
+    top: 270px;
+    border: 2px solid green;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+.circle_3 {
+    position: absolute;
+    bottom: 0;
+    left: 270px;
+    border: 2px solid green;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+.circle_4 {
+    position: absolute;
+    right: 0;
+    top: 270px;
+    border: 2px solid green;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+.text {
+    position: absolute;
+    bottom: 230px;
+    top: 230px;
+    left: 260px;
+    color: red;
+}
