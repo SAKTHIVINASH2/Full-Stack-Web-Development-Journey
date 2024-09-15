@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function unshift(arr, val) {
+            for (let index = arr.length; index >=0 ; index--) {
+                arr[index]=arr[index-1];
+                if(index==0)
+                    arr[index]=val;
+            }
+        }
+        let fruits=['orange', 'mango', 'apple', 'guava'];
+        console.log(`array before inserting the element: ${fruits}`);
+        unshift(fruits, "Kiwi");
+        console.log(`array before inserting the element: ${fruits}`);
+        function foreach(arr, callback) {
+            for(var i=0; i<arr.length; i++){
+                callback(arr[i], i, arr);
+            }
+        }
+        foreach(fruits, (item, index)=>{
+            console.log(`${index+1}. ${item}`);
+        });
+    </script>
+</body>
+</html>
