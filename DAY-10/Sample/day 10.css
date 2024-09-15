@@ -1,0 +1,196 @@
+*{
+    margin: 0%; padding: 0%;
+}
+.bgimage{
+    height: 450px;
+    width: 100%;
+}
+
+.login{
+    background: transparent;
+    width: 80%;
+    margin: auto;
+    text-align: right;
+    top: 0%;
+}
+.buttons{
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.buttons1{
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px;
+}
+
+.top{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    text-align: center;
+
+}
+
+.logo{
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    padding: 25px;
+    border: 2px solid white;
+    border-radius: 50%;
+    font-family: fantasy;
+    color: aqua;
+    font-size: 60px;
+
+}
+
+.head{
+    height: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 37px;
+    color: white;
+
+}
+
+.search{
+    margin-top: 30px;
+}
+
+.location{
+    width: 250px;
+    height: 50px;
+    margin: 0 21px 0 0;
+    padding: 10px;
+    font-size: 16px;
+
+}
+
+.searchbox{
+    position: relative;
+}
+
+.searchinput{
+    width: 475px;
+    height: 30px;
+    padding: 10px;
+    margin: 0 0 0 21px;
+    padding-left: 30px;
+    font-size: 18px;
+}
+
+.down{
+    margin: 50px 80px 80px 80px;
+}
+
+.header{
+    height: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    color: black;
+
+}
+
+.para{
+    height: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: black;
+
+}
+
+.container{
+    margin-top: 30px;
+}
+
+.box{
+    display: inline-block;
+    width: 33%;
+}
+
+.boxitems{
+    position: relative;
+    height: 150px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.boximages{
+    width: 150px;
+    height: 150px;
+    margin: 0 29px 0 0;
+}
+
+.boxhead{
+    position: absolute;
+    top: 0px;
+    left: 190px;
+    height: 25px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    color: black;
+}
+
+.boxsubs{
+    position: absolute;
+    top: 50px;
+    left: 170px;
+    max-width: 190px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    text-align: left;
+    color: black;
+}
+
+@media (max-width: 1136px) {
+    .boxsubs {
+        max-width: 150px;
+        left: 170px;
+        top: 30px;
+    }
+
+    .boxhead {
+        left: 170px;
+    }
+}
+
+@media (max-width: 920px) {
+    .box{
+        width: 50%;
+    }
+
+    .boxsubs {
+        width: 140px;
+        left: 180px;
+        top: 50px;
+    }
+
+    .boxhead{
+        left: 180px;
+    }
+}
+@media (min-width:315px) and (max-width:480px) {
+    .boxitems{
+        width: 350px;
+    }
+    .para{
+        width: max-content;
+        padding-top: 30px;
+    }
+    .header{
+        width: max-content;
+    }
+    .bgimage{
+        width: auto;
+    }
+}
