@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Heap Example</title>
+</head>
+<body>
+    <script>
+        class BinaryHeap {
+            constructor() {
+                this.arr = [];
+            }
+
+            push(value) {
+                this.arr.push(value);
+                this.heapifyUp(this.arr.length - 1);
+            }
+
+            popMax() {
+                if (this.arr.length === 0) {
+                    return null;
+                }
+
+                if (this.arr.length === 1) {
+                    return this.arr.pop();
+                }
+
+                const max = this.arr[0];
+                this.arr[0] = this.arr.pop();
+                this.heapifyDown(0);
+                return max;
+            }
+
+            heapifyUp(index) {
+                while (index > 0) {
+                    const parentIndex = Math.floor((index - 1) / 2);
+                    if (this.arr[index] <= this.arr[parentIndex]) {
+                        break;
+                    }
+                  
+                    [this.arr[index], this.arr[parentIndex]] = [this.arr[parentIndex], this.arr[index]];
+                    index = parentIndex;
+                }
+            }
+
+            heapifyDown(index) {
+                while (true) {
+                    const leftChildIndex = 2 * index + 1;
+                    const rightChildIndex = 2 * index + 2;
+                    let maxIndex = index;
+
+                    if (leftChildIndex < this.arr.length && this.arr[leftChildIndex] > this.arr[maxIndex]) {
+                        maxIndex = leftChildIndex;
+                    }
+
+                    if (rightChildIndex < this.arr.length && this.arr[rightChildIndex] > this.arr[maxIndex]) {
+                        maxIndex = rightChildIndex;
+                    }
+
+                    if (maxIndex === index) {
+                        break;
+                    }
+
+                   
+                    [this.arr[index], this.arr[maxIndex]] = [this.arr[maxIndex], this.arr[index]];
+                    index = maxIndex;
+                }
+            }
+        }
+
+        const heap = new BinaryHeap();
+        heap.push(20);
+        heap.push(30);
+        heap.push(40);
+        heap.push(50);
+
+       
+        const combinedOutput = {
+            binaryheap:heap.arr.length,
+            arr: heap.arr.join(', ')
+        };
+
+         console.log(combinedOutput);
+    
+    </script>
+</body>
+</html>
