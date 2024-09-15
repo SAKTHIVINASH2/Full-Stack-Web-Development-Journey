@@ -1,0 +1,14 @@
+.mainbox{
+    border: 2px solid purple;
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    margin:auto;
+    gap: 1rem;
+}
+.smallbox{
+    min-width: 200px;
+    flex: 1;
+    border: 2px solid lightskyblue;
+    padding: 0.5rem;
+}
