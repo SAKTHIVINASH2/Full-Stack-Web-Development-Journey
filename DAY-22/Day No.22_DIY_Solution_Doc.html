@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class restaurantmanager{
+            restaurantlist=[
+            {
+                id:1,
+                restaurantname:'kfc',
+                address:'anand vihar',
+                city:'delhi'
+            },
+            {
+                id:2,
+                restaurantname:'domino',
+                address:'savita vihar',
+                city:'delhi'
+            },
+            {
+                id:3,
+                restaurantname:"burger king",
+                address:'civil lines',
+                city:'pune'
+            },
+            {
+                id:4,
+                restaurantname:'subway',
+                address:'cantonment',
+                city:'mumbai'
+            }
+        ];
+        printAllrestaurantname=()=>{
+            return this.restaurantlist.map((restaurant)=>restaurant.restaurantname);   
+        };
+        filterrestaurantbycity=(cityname)=>{
+            return this.restaurantlist.filter((restaurant)=>restaurant.city==cityname);
+        };
+        };
+        const restaurantOBJ=new restaurantmanager();
+        console.log(restaurantOBJ.printAllrestaurantname());
+        console.log(restaurantOBJ.filterrestaurantbycity('pune'));
+
+        const date=new Date();
+        console.log(date);
+        console.log(date.getDate());
+        console.log(date.getDay());
+        console.log(date.getFullYear());
+        console.log(date.getTime());
+        console.log(date.getHours());
+
+        console.log("//math")
+        console.log(Math.round(23.33333333333))
+        console.log(Math.ceil(45.75))
+        console.log(Math.floor(95.142)) 
+        console.log(Math.PI)
+        console.log(Math.sqrt(16))
+        console.log(Math.random())
+    </script>
+</body>
+</html>
