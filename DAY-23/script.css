@@ -1,0 +1,18 @@
+.mainbox {
+    border: 2px solid red;
+    height: auto;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+.mainbox>div{
+    flex: 1;
+    border: 2px solid blue;
+    padding: 0.5rem;
+    min-width: 200px;
+}
+.AddressBox{
+    padding: 0.5rem;
+    border: 2px solid green;
+}
