@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       class Graph {
+  constructor() {
+    this.adjacencyList = new Map();
+  }
+
+  addNode(node) {
+    if (!this.adjacencyList.has(node)) {
+      this.adjacencyList.set(node, []);
+    }
+  }
+
+  addEdge(node1, node2) {
+    if (this.adjacencyList.has(node1) && this.adjacencyList.has(node2)) {
+      this.adjacencyList.get(node1).push(node2);
+      this.adjacencyList.get(node2).push(node1);
+    }
+  }
+
+  removeNode(node) {
+    if (this.adjacencyList.has(node)) {
+      this.adjacencyList.delete(node);
+      for (const [otherNode, neighbors] of this.adjacencyList) {
+        this.adjacencyList.set(
+          otherNode,
+          neighbors.filter((n) => n !== node)
+        );
+      }
+    }
+  }
+
+  removeEdge(node1, node2) {
+    if (this.adjacencyList.has(node1) && this.adjacencyList.has(node2)) {
+      this.adjacencyList.set(
+        node1,
+        this.adjacencyList.get(node1).filter((n) => n !== node2)
+      );
+      this.adjacencyList.set(
+        node2,
+        this.adjacencyList.get(node2).filter((n) => n !== node1)
+      );
+    }
+  }
+
+  BFS(startNode) {
+    const visited = new Set();
+    const queue = [startNode];
+    const result = [];
+
+    while (queue.length > 0) {
+      const node = queue.shift();
+      if (!visited.has(node)) {
+        result.push(node);
+        visited.add(node);
+        queue.push(
+          ...this.adjacencyList.get(node).filter((n) => !visited.has(n))
+        );
+      }
+    }
+
+    return result;
+  }
+
+  DFS(startNode) {
+    const visited = new Set();
+    const result = [];
+
+    const dfsRecursive = (node) => {
+      visited.add(node);
+      result.push(node);
+      for (const neighbor of this.adjacencyList.get(node)) {
+        if (!visited.has(neighbor)) {
+          dfsRecursive(neighbor);
+        }
+      }
+    };
+
+    dfsRecursive(startNode);
+    return result;
+  }
+}
+const g = new Graph();
+g.addNode('A');
+g.addNode('B');
+g.addNode('C');
+g.addNode('D');
+g.addEdge('A', 'B');
+g.addEdge('B', 'C');
+g.addEdge('C', 'D');
+console.log(g.BFS('A'));
+g.removeNode('c')
+
+console.log();
+for (const node of ['A', 'B', 'D']) {
+  console.log(node);
+}
+g.removeEdge('B', 'C')
+g.removeEdge('C', 'D')
+g.addEdge('B', 'D');
+console.log(g.BFS('A'));
+console.log(g.DFS('A'));
+for (const node of ['C']) {
+  console.log(node);
+}
+g.addEdge('B', 'C');
+g.addEdge('C', 'D');
+g.removeEdge('B', 'D');
+console.log(g.BFS('A'));
+console.log(g.DFS('A'));
+console.log([g.adjacencyList]);
+g.removeEdge('C', 'D')
+console.log(g.BFS('A'));
+
+    </script>
+</body>
+</html>
