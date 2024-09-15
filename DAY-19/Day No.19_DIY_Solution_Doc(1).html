@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x=10;
+        var y=20;
+        if(x>y){
+            console.log("x is greater than y")
+        }
+        else{
+            console.log("y is greater than x")
+        }
+
+        var z='one';
+        switch (z) {
+            case 'one':
+                console.log("hello from case one...")
+                break;
+            case 'two':    
+                console.log("hello from case two...")
+                break;
+            default:
+                console.log("hello from case defult...")
+        }
+
+        var k=1;
+        var sum=0;
+        while(k<11) {
+            sum+=10
+            k++
+        }
+        console.log(sum)
+
+        var s="welcome to veranda"
+        for(let i=0;i<5;i++) {
+            console.log(s)
+        }
+
+        const newObj=[
+            {
+                id:1,
+                order:'Below500',
+                'orderpercentage':'10.05', 
+                restaurant:'PunjabiTadka'
+
+            },
+            {
+                id:2,
+                order:'500-1000',
+                'orderpercentage':'14.57', 
+                restaurant:'PunjabiTadka'
+            },
+            {
+                id:3,
+                order:'1000-1500',
+                'orderpercentage':'15.08',
+                restaurant:'PunjabiTadka'
+            },
+            {
+                id:4,
+                order:'1500-2000',
+                'orderpercentage':'22.11',
+                restaurant:'PunjabiTadka'
+
+            },
+            {
+                id:5,
+                order:'Above2000',
+                'orderpercentage':'38.19', 
+                restaurant:'PunjabiTadka'
+            }
+        ]
+        for (let i of newObj) {
+            for(let key in i){
+               console.log(i['orderpercentage'])
+            }
+        }
+    </script>
+</body>
+</html>
