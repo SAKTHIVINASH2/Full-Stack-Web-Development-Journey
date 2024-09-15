@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>DAY 46</title>
+    <script>
+        function knapSack(W, wt, val, n) {
+    if (n == 0 || W == 0) {
+        return 0;
+    }
+    if (wt[n - 1] > W) {
+        return knapSack(W, wt, val, n - 1);
+    }
+    else {
+        return Math.max(
+            val[n - 1] + knapSack(W - wt[n - 1], wt, val, n - 1),
+            knapSack(W, wt, val, n - 1)
+        );
+    }
+}
+
+// Example usage
+const values = [60, 100, 120];
+const weights = [10, 20, 30];
+const capacity = 50;
+const n = values.length;
+
+console.log(knapSack(capacity, weights, values, n));
+
+    </script>
+</head>
+    
+
+</html>
