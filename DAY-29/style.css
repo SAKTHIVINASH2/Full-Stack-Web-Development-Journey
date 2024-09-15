@@ -1,0 +1,29 @@
+.nb{
+    padding-top: 0.5rcm;
+    padding-bottom: 0.5rcm;
+    background-color: blueviolet;
+}
+
+.nb-box{
+    width: 80%;
+    margin: auto;
+}
+
+.logo-box{
+    background-color: aqua;
+    color: blue;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+}
+.bodybox{
+    display: flex;
+    border: 2px solid blueviolet;
+    padding: 0.5rem;
+    gap: 1rem;
+}
