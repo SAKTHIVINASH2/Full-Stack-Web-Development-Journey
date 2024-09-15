@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Tree</title>
+</head>
+<body>
+    <script>
+        class TreeNode {
+            constructor(value) {
+                this.value = value;
+                this.left = null;
+                this.right = null;
+            }
+        }
+
+        class BinarySearchTree {
+            constructor() {
+                this.root = null;
+            }
+
+            insert(value) {
+                const newNode = new TreeNode(value);
+
+                if (!this.root) {
+                    this.root = newNode;
+                    return this;
+                }
+
+                let current = this.root;
+                while (true) {
+                    if (value === current.value) return undefined;
+
+                    if (value < current.value) {
+                        if (!current.left) {
+                            current.left = newNode;
+                            return this;
+                        }
+                        current = current.left;
+                    } else {
+                        if (!current.right) {
+                            current.right = newNode;
+                            return this;
+                        }
+                        current = current.right;
+                    }
+                }
+            }
+            insert1(value) {
+        const newNode = new TreeNode(value);
+
+        if (!this.root) {
+            this.root = newNode;
+            return this;
+        }
+
+        newNode.left = this.root;
+        this.root = newNode;
+
+        return this;
+    }
+
+
+
+            search(value) {
+                if (!this.root) return false;
+
+                let current = this.root;
+                while (current) {
+                    if (value === current.value) return true;
+
+                    if (value < current.value) {
+                        current = current.left;
+                    } else {
+                        current = current.right;
+                    }
+                }
+
+                return false;
+            }
+
+            remove(value) {
+                const removeNode = (node, value) => {
+                    if (!node) return null;
+
+                    if (value === node.value) {
+                        if (!node.left && !node.right) return null;
+                        if (!node.left) return node.right;
+                        if (!node.right) return node.left;
+
+                        let temp = node.right;
+                        while (temp.left) {
+                            temp = temp.left;
+                        }
+
+                        node.value = temp.value;
+                        node.right = removeNode(node.right, temp.value);
+                        return node;
+                    } else if (value < node.value) {
+                        node.left = removeNode(node.left, value);
+                        return node;
+                    } else {
+                        node.right = removeNode(node.right, value);
+                        return node;
+                    }
+                };
+
+                this.root = removeNode(this.root, value);
+                return this;
+            }
+
+            traverseInOrder() {
+                const result = [];
+                const traverse = (node) => {
+                    if (node) {
+                        traverse(node.left);
+                        result.push(node.value);
+                        traverse(node.right);
+                    }
+                };
+                traverse(this.root);
+                return result.join("\n");
+            }
+
+            findMinAndMax() {
+                let min = Number.MAX_VALUE; // Initialize min with the maximum possible value
+                let max = Number.MIN_VALUE; // Initialize max with the minimum possible value
+
+                const traverse = (node) => {
+                    if (node) {
+                        if (node.value < min) {
+                            min = node.value;
+                        }
+                        if (node.value > max) {
+                            max = node.value;
+                        }
+                        traverse(node.left);
+                        traverse(node.right);
+                    }
+                };
+
+                traverse(this.root);
+
+                return { min, max };
+            }
+
+            // Other methods here...
+
+            // Helper function to collect elements and traversal result into an array with new lines
+            collectToArray(node = this.root, depth = 0, result = { elements: [], traversal: [] }) {
+                if (!node) return;
+
+                if (result.elements[depth] === undefined) {
+                    result.elements[depth] = [];
+                }
+
+                if (result.traversal[depth] === undefined) {
+                    result.traversal[depth] = [];
+                }
+
+                result.elements[depth].push(node.value);
+                result.traversal[depth].push(node.value);
+
+                // Print each element individually in a new line
+                console.log(node.value);
+
+                this.collectToArray(node.left, depth + 1, result);
+                this.collectToArray(node.right, depth + 1, result);
+
+                if (depth === 0) {
+                    const formattedElements = result.elements.map((level) => level.join("\n")).join("\n\n");
+                    const formattedTraversal = result.traversal.map((level) => level.join("\n")).join("\n\n");
+                    return { elements: formattedElements, traversal: formattedTraversal };
+                }
+            }
+        }
+    
+
+        const bst = new BinarySearchTree();
+        bst.insert(9);
+        bst.insert(10);
+        bst.insert(18);
+        bst.insert(20);
+        bst.insert(30);
+        bst.insert(40);
+        bst.insert(25);
+        console.log(bst);
+
+
+        // Print each element individually in new lines
+       // bst.collectToArray();
+        
+       
+console.log(bst);
+bst.remove(25)
+console.log("Element 25 is removed")
+bst.remove(25);
+console.log(bst.search(40));
+console.log(bst.search(25));
+const formattedOutput = bst.collectToArray();
+console.log("***********************");
+const found = bst.search(10);
+if (found) {
+    console.log(10); 
+}
+const founds = bst.search(9);
+if (founds) {
+    console.log(9); 
+}
+const found1 = bst.search(20);
+if (found1) {
+    console.log(20);
+}
+const found2 = bst.search(18);
+if (found2) {
+    console.log(18); 
+}
+const found3 = bst.search(30);
+if (found3) {
+    console.log(30); 
+}
+const found4 = bst.search(40);
+if (found4) {
+    console.log(40);
+}
+console.log("***********************");
+
+        // Find and print the minimum and maximum values
+        // const { min, max } = bst.findMinAndMax();
+        // console.log( min);
+        // console.log( max);
+        const elementsToPrint = [9, 18, 40, 30, 20, 10];
+
+
+for (const element of elementsToPrint) {
+    if (bst.search(element)) {
+        console.log(element);
+    } else {
+        console.log(`${element} not found in the binary search tree.`);
+    }
+}
+
+console.log(bst);
+
+
+
+
+    </script>
+</body>
+</html>
