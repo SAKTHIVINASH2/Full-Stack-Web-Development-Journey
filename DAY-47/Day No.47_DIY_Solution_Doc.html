@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAY 47
+        
+    </title>
+</head>
+<body>
+    <script> 
+function findMinCoins(coins, amount) {
+    let dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+    for (let i = 1; i <= amount; i++) {
+        for (let j = 0; j < coins.length; j++) {
+            if (coins[j] <= i) {
+                dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+            }
+        }
+    }
+    let result = [];
+    let i = amount;
+    while (i > 0) {
+        for (let j = 0; j < coins.length; j++) {
+            if (coins[j] <= i && dp[i - coins[j]] === dp[i] - 1) {
+                result.push(coins[j]);
+                i -= coins[j];
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+let coins = [1, 5, 10, 25, 50, 100];
+let amount = 256;
+console.log(findMinCoins(coins,amount));
+
+    </script>
+</body>
+</html>
