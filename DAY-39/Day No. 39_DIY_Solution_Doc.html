@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            MAP FUNCTION
+        </title>
+    </head>
+
+<body>
+    <script>
+     class HashTable {
+  constructor() {
+    this.table = {};
+  }
+
+  hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash += key.charCodeAt(i);
+    }
+    return hash % 31; // Using a small prime number as the hash table size for simplicity
+  }
+
+  set(key, value) {
+    const index = this.hash(key);
+    this.table[index] = value;
+  }
+
+  get(key) {
+    const index = this.hash(key);
+    return this.table[index];
+  }
+
+  search(value) {
+    for (const key in this.table) {
+      if (this.table.hasOwnProperty(key) && this.table[key] === value) {
+        return key;
+      }
+    }
+    return null;
+  }
+
+  display() {
+    for (const key in this.table) {
+      if (this.table.hasOwnProperty(key)) {
+        console.log(`${key}: ${this.table[key]}`);
+      }
+    }
+  }
+}
+
+const myHashTable = new HashTable();
+
+myHashTable.set("DSA", "Data Structures and Algorithms");
+myHashTable.set("Undefined", "Not Defined");
+myHashTable.set("FSWD", "Full Stack Web Development");
+
+console.log(myHashTable.get("DSA"));      // Output: Data Structures and Algorithms
+console.log(myHashTable.get("Undefined"));// Output: Not Defined
+console.log(myHashTable.get("FSWD"));     // Output: Full Stack Web Development
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
