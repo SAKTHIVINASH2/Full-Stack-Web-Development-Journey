@@ -1,0 +1,111 @@
+.hello{
+    position: relative;
+    background-image: url(Grilled-Chicken-Desktop-Wallpaper-HD.jpg);
+    width: 100%;
+    height: 650px;
+    background-size: cover;
+    text-align: right;
+    padding-right: 20px;
+}
+.button {
+    position: absolute;
+    right: 80px;
+    top: 10px;
+}
+.logo {
+    background-color: white;
+    position: inherit;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin: auto;
+    padding: 15px;
+    border: 4px solid white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: darkmagenta;
+    font-size: 48px;
+    padding-top: 0%;
+    top: 270px;
+    text-align: center;
+}
+.text {
+    position: inherit;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    top: 300px;
+}
+.cho {
+    position: inherit;
+    display: flex;
+    justify-content: center;
+    margin-top:320px ;
+}
+.header{
+    height: 45px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: left;
+    color: black;
+
+}
+
+.para{
+    height: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    text-align: left;
+    color: black;
+
+}
+
+.container{
+    margin-top: 30px;
+}
+
+.box{
+    display: -webkit-inline-box;
+    position: relative;
+    margin-left: 30px;
+    padding-top: 40px;
+}
+
+.boxitems{
+    position: inherit;
+    width: 350px;
+    height: 150px;
+    border-radius: 20px;
+    margin: auto;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.boximages{
+    border-radius: 20px;
+    width: 150px;
+    height: 150px;
+    margin: 0 29px 0 0;
+    position: inherit;
+}
+
+.boxhead{
+    position: inherit;
+    top: -128px;
+    left: 199px;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+    color: black;
+}
+
+.boxsubs{
+    position: inherit;
+    top: -117px;
+    left: 165px;
+    max-width: 190px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    text-align: left;
+    color: black;
+}
