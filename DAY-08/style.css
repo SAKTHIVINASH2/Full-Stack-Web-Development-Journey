@@ -1,0 +1,32 @@
+.hello {
+    background-color:white;
+    background-image: url(pexels-chan-walrus-958545.jpg);
+    height: 650px; 
+    background-size: cover;     
+    background-repeat: no-repeat;
+    background-attachment: fixed;   
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.rpg {
+    background-color: red;
+}
+.rpg_1 {
+    width: 80%;
+    margin: auto;
+    border: 2px solid rgb(228,0,0);
+    text-align: right;
+}
+.login {
+    background: transparent;
+    border: none;
+    color: white;
+}
+.create {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px;
+}
