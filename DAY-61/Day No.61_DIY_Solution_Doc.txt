@@ -1,0 +1,375 @@
+start:
+
+PS C:\Users\ACT-C5-23> mongosh
+Current Mongosh Log ID: 6718974ebd14badc3e86b01c
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.2
+Using MongoDB:          8.0.1
+Using Mongosh:          2.3.2
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-10-23T10:26:59.895+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+1.Create a database named “Zomato” on your local instance?The expected output is as shown below:
+
+test> use Zomato
+switched to db Zomato
+
+2.Insert  theRestaurant.jsondata  given  below  into  the  restaurant collection on your MongoDB local instance?
+
+Zomato> db.resturants.insertMany([
+... {
+...     "name":"Domino's",
+...     "city": "Delhi",
+...     "location_id":1,
+...     "city_id":1,
+...     "locality":"ShalimarBagh",
+...     "thumb": [
+...         "Assets/breakfast.jpg",
+...         "Assets/dinner.png",
+...         "Assets/drinks.png",
+...         "Assets/dinner.png"
+...         ],
+...     "aggregate_rating": 4.2,
+...     "rating_text":"VeryGood",
+...     "min_price": 666,
+...     "contact_number":919453524651,
+...     "cuisine": [
+...         {"id":1,"name":"NorthIndian"},
+...         {"id":4,"name":"FastFood"}
+...     ],
+...     "image":"Assets/breakfast.jpg",
+...      "mealtype_id": 1
+...     },
+... {
+...     "name":"KFC",
+...     "city": "Delhi",
+...     "location_id":1,
+...     "city_id":1,
+...     "locality":"ShalimarBagh",
+...     "thumb": [
+...         "Assets/breakfast.jpg",
+...         "Assets/dinner.png",
+...         "Assets/drinks.png",
+...         "Assets/dinner.png"
+...         ],
+...     "aggregate_rating": 4.5,
+...     "rating_text":"Excellent",
+...     "min_price": 333,
+...     "contact_number":919453524651,
+...     "cuisine": [
+...         {"id":2,"name":"SouthIndian"},
+...         {"id":4,"name":"FastFood"}
+...         ],
+...     "image":"Assets/breakfast.jpg",
+...     "mealtype_id": 1
+...     },
+... {
+...     "name":"BurgerKing",
+...     "city": "Delhi",
+...     "location_id": 1,
+...     "city_id":1,
+...     "locality":"ShalimarBagh",
+...     "thumb": [
+...         "Assets/breakfast.jpg",
+...         "Assets/dinner.png",
+...         "Assets/drinks.png",
+...         "Assets/dinner.png"
+...         ],
+...     "aggregate_rating": 4.5,
+...     "rating_text":"Excellent",
+...     "min_price": 999,
+...     "contact_number":919453524651,
+...     "cuisine": [
+...         {"id":2,"name":"SouthIndian"},
+...         {"id":4,"name":"FastFood"}
+...         ],
+...     "image":"Assets/breakfast.jpg",
+...     "mealtype_id": 1
+...     },
+... {
+...     "name":"BabaKaDhaba",
+...     "city": "Delhi",
+...     "location_id": 5,
+...     "city_id":1,
+...     "locality":"AnandVihar",
+...     "thumb": [
+...         "Assets/breakfast.jpg",
+...         "Assets/dinner.png","Assets/drinks.png",
+...         "Assets/dinner.png"],
+...     "aggregate_rating": 3.5,
+...     "rating_text":"Excellent",
+...     "min_price": 599,
+...     "contact_number":919453524651,
+...     "cuisine": [
+...         {"id":2,"name":"SouthIndian"},
+...         {"id":4,"name":"FastFood"}
+...         ],
+...     "image":"Assets/breakfast.jpg",
+...     "mealtype_id": 2}
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6718976ebd14badc3e86b01d'),
+    '1': ObjectId('6718976ebd14badc3e86b01e'),
+    '2': ObjectId('6718976ebd14badc3e86b01f'),
+    '3': ObjectId('6718976ebd14badc3e86b020')
+  }
+}
+
+3. Insert locations.json json data given below into locations collections on your MongoDB local Instance?
+
+Zomato> db.locations.insertMany([
+...     {
+...         "name": "ShalimarBagh",
+...         "city_id":1,
+...         "location_id": 1,
+...         "city": "Delhi",
+...         "country_name":"India"
+...     },
+...     {
+...         "name":"Janpat",
+...         "city_id": 1,
+...         "location_id": 2,
+...         "city":"Delhi",
+...         "country_name":"India"
+...     },
+...     {
+...         "name":"MSP",
+...         "city_id": 1,
+...         "location_id": 3,
+...         "city":"Delhi",
+...         "country_name":"India"
+...         },
+...     {
+...         "name":"MSP",
+...         "city_id": 2,
+...         "location_id":4,
+...         "city":"Pune",
+...         "country_name": "India"
+...         },
+...     {
+...         "name": "AnandVihar",
+...         "city_id": 1,
+...         "location_id": 5,
+...         "city": "Delhi",
+...         "country_name": "India"
+...     }
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('671897c4bd14badc3e86b021'),
+    '1': ObjectId('671897c4bd14badc3e86b022'),
+    '2': ObjectId('671897c4bd14badc3e86b023'),
+    '3': ObjectId('671897c4bd14badc3e86b024'),
+    '4': ObjectId('671897c4bd14badc3e86b025')
+  }
+}
+
+4. Insert mealtype.json data given below into mealtypes collection on your MongoDB local Instance?
+
+Zomato> db.mealtype.insertMany([
+...     {
+...     "name": "Breakfast",
+...     "content": "Start your day with exclusive breakfast options",
+...     "image": "Assets/breakfast.jpg",
+...     "meal_type": 1
+...     },
+...     {
+...     "name": "Lunch",
+...     "content": "Start your day with exclusive lunch options",
+...     "image":"Assets/lunch.jpg",
+...     "meal_type": 2
+...     },
+...     {
+...     "name": "Dinner",
+...     "content": "Start your day with exclusive dinner options",
+...     "image":"Assets/dinner.png",
+...     "meal_type": 3
+...     },
+...     {
+...     "name": "Snacks",
+...     "content": "Start your day with exclusive snacks options",
+...     "image":"Assets/snacks.png",
+...     "meal_type": 4
+...     },
+...     {
+...     "name": "Drinks",
+...     "content": "Start your day with exclusive drinks options",
+...     "image":"Assets/drinks.png",
+...     "meal_type": 5
+...     },
+...     {
+...     "name": "NightLife",
+...     "content": "Start your day with exclusive nightlife options",
+...     "image":"Assets/nightlife.png",
+...     "meal_type": 6
+...     }
+... ]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('671897edbd14badc3e86b026'),
+    '1': ObjectId('671897edbd14badc3e86b027'),
+    '2': ObjectId('671897edbd14badc3e86b028'),
+    '3': ObjectId('671897edbd14badc3e86b029'),
+    '4': ObjectId('671897edbd14badc3e86b02a'),
+    '5': ObjectId('671897edbd14badc3e86b02b')
+  }
+}
+
+5. Find the domino’s restaurant from the restaurant collection?
+The expected output is shown:
+
+Zomato> db.resturants.find({name:"Domino's"}).pretty()
+[
+  {
+    _id: ObjectId('6718976ebd14badc3e86b01d'),
+    name: "Domino's",
+    city: 'Delhi',
+    location_id: 1,
+    city_id: 1,
+    locality: 'ShalimarBagh',
+    thumb: [
+      'Assets/breakfast.jpg',
+      'Assets/dinner.png',
+      'Assets/drinks.png',
+      'Assets/dinner.png'
+    ],
+    aggregate_rating: 4.2,
+    rating_text: 'VeryGood',
+    min_price: 666,
+    contact_number: 919453524651,
+    cuisine: [ { id: 1, name: 'NorthIndian' }, { id: 4, name: 'FastFood' } ],
+    image: 'Assets/breakfast.jpg',
+    mealtype_id: 1
+  }
+]
+
+6. Find the restaurants whose min_price is greater than 300 and less
+than 600 from the restaurant collection?
+The expected output is shown below
+
+Zomato> db.resturants.find({min_price: {$gt: 300, $gt: 400}}).pretty()
+[
+  {
+    _id: ObjectId('6718976ebd14badc3e86b01d'),
+    name: "Domino's",
+    city: 'Delhi',
+    location_id: 1,
+    city_id: 1,
+    locality: 'ShalimarBagh',
+    thumb: [
+      'Assets/breakfast.jpg',
+      'Assets/dinner.png',
+      'Assets/drinks.png',
+      'Assets/dinner.png'
+    ],
+    aggregate_rating: 4.2,
+    rating_text: 'VeryGood',
+    min_price: 666,
+    contact_number: 919453524651,
+    cuisine: [ { id: 1, name: 'NorthIndian' }, { id: 4, name: 'FastFood' } ],
+    image: 'Assets/breakfast.jpg',
+    mealtype_id: 1
+  },
+  {
+    _id: ObjectId('6718976ebd14badc3e86b01f'),
+    name: 'BurgerKing',
+    city: 'Delhi',
+    location_id: 1,
+    city_id: 1,
+    locality: 'ShalimarBagh',
+    thumb: [
+      'Assets/breakfast.jpg',
+      'Assets/dinner.png',
+      'Assets/drinks.png',
+      'Assets/dinner.png'
+    ],
+    aggregate_rating: 4.5,
+    rating_text: 'Excellent',
+    min_price: 999,
+    contact_number: 919453524651,
+    cuisine: [ { id: 2, name: 'SouthIndian' }, { id: 4, name: 'FastFood' } ],
+    image: 'Assets/breakfast.jpg',
+    mealtype_id: 1
+  },
+  {
+    _id: ObjectId('6718976ebd14badc3e86b020'),
+    name: 'BabaKaDhaba',
+    city: 'Delhi',
+    location_id: 5,
+    city_id: 1,
+    locality: 'AnandVihar',
+    thumb: [
+      'Assets/breakfast.jpg',
+      'Assets/dinner.png',
+      'Assets/drinks.png',
+      'Assets/dinner.png'
+    ],
+    aggregate_rating: 3.5,
+    rating_text: 'Excellent',
+    min_price: 599,
+    contact_number: 919453524651,
+    cuisine: [ { id: 2, name: 'SouthIndian' }, { id: 4, name: 'FastFood' } ],
+    image: 'Assets/breakfast.jpg',
+    mealtype_id: 2
+  }
+]
+
+Find the restaurant whose cuisine is ‘North Indian” from the
+restaurant collection?
+The expected output is shown below.
+
+Zomato> db.resturants.find({"cuisine.name":{$in:["NorthIndian"]}}).pretty()
+[
+  {
+    _id: ObjectId('6718976ebd14badc3e86b01d'),
+    name: "Domino's",
+    city: 'Delhi',
+    location_id: 1,
+    city_id: 1,
+    locality: 'ShalimarBagh',
+    thumb: [
+      'Assets/breakfast.jpg',
+      'Assets/dinner.png',
+      'Assets/drinks.png',
+      'Assets/dinner.png'
+    ],
+    aggregate_rating: 4.2,
+    rating_text: 'VeryGood',
+    min_price: 666,
+    contact_number: 919453524651,
+    cuisine: [ { id: 1, name: 'NorthIndian' }, { id: 4, name: 'FastFood' } ],
+    image: 'Assets/breakfast.jpg',
+    mealtype_id: 1
+  }
+]
+
+8. Update the min_price of the restaurant “Burger king” to 133 in
+restaurant collection?
+The expected output is shown below:
+
+Zomato> db.resturants.update({name:"Burger King"},{$set:{min_price:133}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+9. Remove the “Hotel Elite” restaurant form the restaurant
+collection?
+
+
+Zomato> db.resturants.remove({name:"Hotel Elite"})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 0 }
+Zomato>
